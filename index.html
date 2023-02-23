@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Editor for MoonPlace.io</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style type="text/css">
+    .resized-img {
+      border: 1px solid;
+      border-color: #DDD;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid mt-4">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+        <h2 class="text-center">Image Editor for MoonPlace.io by <a href="https://www.reddit.com/user/pyxploiter" target="_blank">u/pyxploiter</a></h2>
+        <br/>
+        <div class="card bg-light mb-3">
+        <div class="card-header">
+          Step 1. Upload Image
+          <p style="font-size: 12px; margin:0px">(width, height): input width and height of your resized image.  </p>
+          <p style="font-size: 12px; margin:0px">(grid_x, grid_y): input first and second value from the grid.  </p>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="image" accept="image/*" required>
+                <label class="custom-file-label" for="image">Choose an Image</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">width</span>
+                  </div>
+                  <input type="number" min="1" value="30" class="form-control" id="width" required>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">height</span>
+                  </div>
+                  <input type="number" min="1" value="30" class="form-control" id="height" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">grid_x</span>
+                  </div>
+                  <input type="number" min="0" class="form-control" id="grid-x" required>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">grid_y</span>
+                  </div>
+                  <input type="number" min="0" class="form-control" id="grid-y" required>
+                </div>
+              </div>
+            </div>
+
+            <center>
+              <button type="button" class="btn btn-success" onclick="processImage()">Resize Image</button>
+            </center>
+          </form>
+        </div>
+      </div>
+
+        <div class="my-4 resized-img">
+          <div class="card-header">
+            Resized Image
+          </div>
+
+          <div class="text-center">
+            <img id="result-img" src="" class="img-fluid">
+          </div>
+        </div>
+
+        <div class="card bg-light mb-3">
+          <div class="card-header">
+            Step 2.
+            <ul style="font-size:12px; margin:0px">
+              <li>
+                Go to <a href="https://nova.arbiscan.io/address/0x934095513c1ff89592A4b8490e263da7a6a4CEAc#writeContract" target="_blank">Verified Contract Write Contract Website</a>
+              </li>
+              <li>
+                Click on "Connect to Web3" and connect your wallet
+              </li>
+              <li>
+                Click on #14. Update <span style="color: #999;">(at the end of the page)</span>
+              </li>
+              <li>
+                Copy and paste the following values
+              </li>
+              <li>
+                Click "Write" and approve the transaction in your wallet.
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="input-x">_x (uint256):</label>
+              <div class="input-group">
+                <textarea class="form-control" id="input-x" rows="1" readonly></textarea>
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" onclick="copyToClipboard('input-x')">Copy</button>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="input-y">_y (uint256):</label>
+              <div class="input-group">
+                <textarea class="form-control" id="input-y" rows="1" readonly></textarea>
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" onclick="copyToClipboard('input-y')">Copy</button>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="token_uri">_tokenURI (string):</label>
+              <div class="input-group">
+                <textarea class="form-control" id="token_uri" rows="3" readonly></textarea>
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" onclick="copyToClipboard('token_uri')">Copy</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer text-center text-muted">
+            Double check the main website and see if it is updated. If you did something wrong it converts your tile to a red square by default.
+          </div>
+        </div>
+        <hr/>
+        <!-- <div class="card bg-light mb-3">
+          <div class="card-header">
+            * Some extra information that you do not need
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="result-base64-img">Base64-encoded image:</label>
+              <textarea class="form-control" id="result-base64-img" rows="3" readonly></textarea>
+            </div>
+            <div class="form-group">
+              <label for="result-input-text">JSON object:</label>
+              <textarea class="form-control" id="result-input-text" rows="3" readonly></textarea>
+            </div>
+            <div class="form-group">
+              <label for="result-input-text-base64">Base64-encoded JSON object:</label>
+              <textarea class="form-control" id="result-input-text-base64" rows="3" readonly></textarea>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer style="background-color: #343a40; color: #fff; text-align: center; padding: 20px;">
+      Feel free to tip some moons if it was useful ;) <a href="https://www.reddit.com/user/pyxploiter" target="_blank">u/pyxploiter</a>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.10.0/dist/tf.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  function copyToClipboard(elementId) {
+    var textarea = document.getElementById(elementId);
+    textarea.select();
+    document.execCommand("copy");
+  }
+</script>
+
+<script>
+function processImage() {
+  const fileInput = document.getElementById('image');
+  const widthInput = document.getElementById('width');
+  const heightInput = document.getElementById('height');
+  const gridXInput = document.getElementById('grid-x');
+  const gridYInput = document.getElementById('grid-y');
+  const resultBase64Img = document.getElementById('result-base64-img');
+  const resultInputText = document.getElementById('result-input-text');
+  const resultInputTextBase64 = document.getElementById('result-input-text-base64');
+  const xInput = document.getElementById('input-x');
+  const yInput = document.getElementById('input-y');
+  const tokenUri = document.getElementById('token_uri');
+
+  const file = fileInput.files[0];
+  const width = parseInt(widthInput.value);
+  const height = parseInt(heightInput.value);
+  const grid_x = parseInt(gridXInput.value);
+  const grid_y = parseInt(gridYInput.value);
+  
+
+  const reader = new FileReader();
+  reader.onload = function(event) {
+    const img = new Image();
+    img.onload = function() {
+      const canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, width, height);
+      const dataURL = canvas.toDataURL();
+
+      // Update existing image element with new data URL
+      const output = document.querySelector('#result-img');
+      output.src = dataURL;
+
+      // resultBase64Img.innerText = dataURL;
+      console.log("base64_img: " + dataURL);
+      const json = JSON.stringify({
+        title: "Moon Pixel Map",
+        description: "Block: (X_POSITION, Y_POSITION)",
+        image: dataURL
+      });
+      console.log("json_obj: " + json);
+      console.log("final_base64: " + "data:application/json;base64," + btoa(json));
+      // resultInputText.innerText = json;
+      // resultInputTextBase64.innerText = btoa(json);
+      tokenUri.innerText = "data:application/json;base64," + btoa(json);
+    };
+    img.src = event.target.result;
+    xInput.innerText = Math.floor(grid_x / 10);
+    yInput.innerText = Math.floor(grid_y / 10);
+  };
+  reader.readAsDataURL(file);
+}
+
+// function to update the file name in the input field
+  function updateFileName() {
+    // get the file input element
+    const fileInput = document.getElementById('image');
+    // get the label element associated with the file input
+    const label = fileInput.nextElementSibling;
+    // get the file name from the file input element
+    const fileName = fileInput.files[0].name;
+    // set the label text to the file name
+    label.innerText = fileName;
+  }
+
+  // add event listener to file input to update file name on change
+  const fileInput = document.getElementById('image');
+  fileInput.addEventListener('change', updateFileName);
+  
+
+</script>
+</body>
