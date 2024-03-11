@@ -24,14 +24,21 @@ li{list-style:none}
    My CSS
    ========================================================================== */
 
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap);
 /* ---- base ---- */
 
 html,body{ 
 	width:100%;
 	height:100%;
-	background:#fff;
-  margin:0;
-  padding:0;
+    background:#fff;
+    margin:0;
+    padding:0;
+}
+
+h2 {
+    padding: 0;
+    margin: 0;
 }
 
 html{
@@ -39,15 +46,19 @@ html{
 }
 
 body{
-  font:normal 75% Arial, Helvetica, sans-serif;
+  font:normal 75% montserrat, Helvetica, sans-serif;
+}
+
+h1, h2 {
+    font-family: Raleway, sans-serif;
 }
 
 .sidebar {
     position: fixed;
-    height: 100%; /* Adjusts the height to fit the viewport */
+    height: 100%; 
     width: 30%;
     padding-top: 5%;
-    color: #fff; /* Text color */
+    color: #fff; 
     pointer-events: none; /* Makes mouse events pass through */
 /*    border: 2px red solid;*/
 }
@@ -56,29 +67,38 @@ body{
     pointer-events: auto; /* Enables mouse events for child elements */
 }
 
-.profile-info h1 {
+.profile-info h1{
   font-size: 2vw;
 }
 
+.profile-info h2{
+  font-size: 1vw;
+}
+
 .profile-info p {
-  padding: 20px;
-  font-size: 20px;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+  font-size: 1.0vw;
+  text-align: justify;
+  text-align: center;
 }
 
 .profile-picture {
-    width: 300px; 
-    height: 300px;
+    width: 16vw; 
+    height: 16vw;
     border-radius: 50%;
     margin-bottom: 20px;
-    border: 3px solid #fff;
+    border: 0.3vw solid #fff;
 }
 
 
 .social-icon {
-    color: #fff; /* Icon color */
-    font-size: 60px; /* Icon size */
-    margin-right: 30px; /* Space between icons */
-    text-decoration: none; /* Removes underline from icons */
+    color: #fff; 
+    font-size: 4vw; 
+    padding: 0 0.8vw;
+/*    text-decoration: none; */
 }
 
 .social-icon:hover {
@@ -97,8 +117,67 @@ canvas{
   width: 30%;
   height: 100%;
   background-color: #333;
-  background-image: linear-gradient(19deg, rgb(33, 212, 253) 0%, rgb(183, 33, 255) 100%);
+  background-image: linear-gradient(19deg, rgb(33, 212, 253) 0%, rgb(183, 33, 255) 100%); /* #21d4fd #b721ff */
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
+}
+
+.content {
+    position: fixed;
+    width: 70%;
+    right: 0px;
+}
+
+/* navbar */
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1vw;
+    flex-wrap: wrap;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333; 
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 10px; 
+    position: relative; 
+    padding: 10px 20px;
+    padding-bottom: 22px;
+    background: -webkit-linear-gradient(90deg, rgba(255,130,130,1) 0%, rgba(225,120,237,1) 100%);
+    background: linear-gradient(90deg, rgba(255,130,130,1) 0%, rgba(225,120,237,1) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* Make the text color transparent to show the gradient */
+    display: inline-block; /* Ensure the background size covers the text */
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%; /* Start from the middle */
+    width: 0; /* Initially no width */
+    height: 3px; /* Height of the underline */
+    background: linear-gradient(90deg, rgba(255,130,130,1) 0%, rgba(225,120,237,1) 100%); /* Gradient */
+    transition: all 0.3s ease-in-out; /* Smooth transition for the animation */
+}
+
+.navbar a:hover::after, .navbar a:focus::after {
+    width: 100%; /* Full width on hover/focus */
+    left: 0; /* Align from the left */
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .navbar a {
+        width: 100%; /* Make each link full width */
+        text-align: center; /* Center-align the text */
+    }
 }
