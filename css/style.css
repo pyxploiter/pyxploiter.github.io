@@ -63,7 +63,7 @@ h1, h2 {
 /*    border: 2px red solid;*/
 }
 
-.sidebar * {
+.social-media * {
     pointer-events: auto; /* Enables mouse events for child elements */
 }
 
@@ -117,11 +117,15 @@ canvas{
   width: 30%;
   height: 100%;
   background-color: #333;
-  background-image: linear-gradient(19deg, rgb(33, 212, 253) 0%, rgb(183, 33, 255) 100%); /* #21d4fd #b721ff */
+  background-image: linear-gradient(19deg, rgb(6 213 255) 0%, rgb(2 2 2) 100%); /* #21d4fd #b721ff */
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
 }
+
+/* linear-gradient(19deg, rgb(33, 212, 253) 0%, rgb(183, 33, 255) 100%) */
+/* linear-gradient(19deg, rgb(6 213 255) 0%, rgb(2 2 2) 100%) */
+/* linear-gradient(90deg, rgba(255,130,130,1) 0%, rgba(225,120,237,1) 100%) */
 
 .content {
     position: fixed;
@@ -147,8 +151,8 @@ canvas{
     position: relative; 
     padding: 10px 20px;
     padding-bottom: 22px;
-    background: -webkit-linear-gradient(90deg, rgba(255,130,130,1) 0%, rgba(225,120,237,1) 100%);
-    background: linear-gradient(90deg, rgba(255,130,130,1) 0%, rgba(225,120,237,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgb(6 213 255) 0%, rgb(2 2 2) 100%);
+    background: linear-gradient(90deg, rgb(6 213 255) 0%, rgb(2 2 2) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent; /* Make the text color transparent to show the gradient */
@@ -162,7 +166,7 @@ canvas{
     left: 50%; /* Start from the middle */
     width: 0; /* Initially no width */
     height: 3px; /* Height of the underline */
-    background: linear-gradient(90deg, rgba(255,130,130,1) 0%, rgba(225,120,237,1) 100%); /* Gradient */
+    background: linear-gradient(19deg, rgb(6 213 255) 0%, rgb(2 2 2) 100%); /* Gradient */
     transition: all 0.3s ease-in-out; /* Smooth transition for the animation */
 }
 
