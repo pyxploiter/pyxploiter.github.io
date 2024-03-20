@@ -6,7 +6,7 @@ window.addEventListener('scroll', () => {
   const downLink = document.querySelector('.down-link.scrollto'); 
   const scrollPosition = window.scrollY;
   
-  if (scrollPosition > 70) { // Adjust the '50' if you want a different trigger point
+  if (scrollPosition > 70) { // Adjust the '70' if you want a different trigger point
     downLink.style.opacity = '0'; // Hide when scrolling down
   } else {
     downLink.style.opacity = '1'; // Show when scrolling up
@@ -44,7 +44,7 @@ const onscroll = (el, listener) => {
 // Navbar links active state on scroll
 let navbarlinks = select('#navbar .scrollto', true)
 const navbarlinksActive = () => {
-  let position = window.scrollY + 200
+  let position = window.scrollY + 300
   navbarlinks.forEach(navbarlink => {
     if (!navbarlink.hash) return
     let section = select(navbarlink.hash)
@@ -69,21 +69,7 @@ window.addEventListener('load', () => {
   })
 });
 
-// Hero type effect
-const typed = select('.typed')
-if (typed) {
-  let typed_strings = typed.getAttribute('data-typed-items')
-  typed_strings = typed_strings.split(',')
-  new Typed('.typed', {
-    strings: typed_strings,
-    loop: true,
-    typeSpeed: 100,
-    backSpeed: 50,
-    backDelay: 2000
-  });
-}
-
-// Scroll with ofset on page load with hash links in the url
+// Scroll with offset on page load with hash links in the url
 window.addEventListener('load', () => {
   if (window.location.hash) {
     if (select(window.location.hash)) {
@@ -91,13 +77,6 @@ window.addEventListener('load', () => {
     }
   }
 });
-
-// Mobile nav toggle
-on('click', '.mobile-nav-toggle', function(e) {
-  select('body').classList.toggle('mobile-nav-active')
-  this.classList.toggle('bi-list')
-  this.classList.toggle('bi-x')
-})
 
 // Scroll with offset on links with a class name .scrollto
 on('click', '.scrollto', function(e) {
@@ -124,6 +103,41 @@ const scrollto = (el) => {
   })
 }
 
+// Mobile nav toggle
+on('click', '.mobile-nav-toggle', function(e) {
+  select('body').classList.toggle('mobile-nav-active')
+  this.classList.toggle('bi-list')
+  this.classList.toggle('bi-x')
+})
+
+// Back to top button
+let backtotop = select('.back-to-top')
+if (backtotop) {
+  const toggleBacktotop = () => {
+    if (window.scrollY > 400) {
+      backtotop.classList.add('active')
+    } else {
+      backtotop.classList.remove('active')
+    }
+  }
+  window.addEventListener('load', toggleBacktotop)
+  onscroll(document, toggleBacktotop)
+}
+
+// Hero type effect
+const typed = select('.typed')
+if (typed) {
+  let typed_strings = typed.getAttribute('data-typed-items')
+  typed_strings = typed_strings.split(',')
+  new Typed('.typed', {
+    strings: typed_strings,
+    loop: true,
+    typeSpeed: 100,
+    backSpeed: 50,
+    backDelay: 2000
+  });
+}
+
 // particle js pattern
 particlesJS('particles-js',
   {
@@ -132,7 +146,7 @@ particlesJS('particles-js',
         "value": 140,
         "density": {
           "enable": true,
-          "value_area": 600
+          "value_area": 400
         }
       },
       "color": {
@@ -169,16 +183,16 @@ particlesJS('particles-js',
         "anim": {
           "enable": false,
           "speed": 10,
-          "size_min": 0.1,
+          "size_min": 0.5,
           "sync": false
         }
       },
       "line_linked": {
         "enable": true,
-        "distance": 120,
+        "distance": 80,
         "color": "#ffffff",
         "opacity": 0.2,
-        "width": 0.5
+        "width": 0.4
       },
       "move": {
         "enable": true,
