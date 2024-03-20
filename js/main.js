@@ -1,0 +1,240 @@
+// set scroll variable for animation
+window.addEventListener('scroll', () => {
+  const isScrolled = window.pageYOffset > 0; // Check if scrolled
+  document.body.style.setProperty('--scroll', window.pageYOffset);
+  
+  const downLink = document.querySelector('.down-link.scrollto'); 
+  const scrollPosition = window.scrollY;
+  
+  if (scrollPosition > 70) { // Adjust the '50' if you want a different trigger point
+    downLink.style.opacity = '0'; // Hide when scrolling down
+  } else {
+    downLink.style.opacity = '1'; // Show when scrolling up
+  }
+
+}, false);
+
+// Easy selector helper function
+const select = (el, all = false) => {
+  el = el.trim()
+  if (all) {
+    return [...document.querySelectorAll(el)]
+  } else {
+    return document.querySelector(el)
+  }
+}
+
+// Easy event listener function
+const on = (type, el, listener, all = false) => {
+  let selectEl = select(el, all)
+  if (selectEl) {
+    if (all) {
+      selectEl.forEach(e => e.addEventListener(type, listener))
+    } else {
+      selectEl.addEventListener(type, listener)
+    }
+  }
+}
+
+// Easy on scroll event listener 
+const onscroll = (el, listener) => {
+  el.addEventListener('scroll', listener)
+}
+
+// Navbar links active state on scroll
+let navbarlinks = select('#navbar .scrollto', true)
+const navbarlinksActive = () => {
+  let position = window.scrollY + 200
+  navbarlinks.forEach(navbarlink => {
+    if (!navbarlink.hash) return
+    let section = select(navbarlink.hash)
+    if (!section) return
+    if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+      navbarlink.classList.add('active')
+    } else {
+      navbarlink.classList.remove('active')
+    }
+  })
+}
+window.addEventListener('load', navbarlinksActive)
+onscroll(document, navbarlinksActive)
+
+// Animation on scroll
+window.addEventListener('load', () => {
+  AOS.init({
+    duration: 1000,
+    easing: 'ease-in-out',
+    once: true,
+    mirror: false
+  })
+});
+
+// Hero type effect
+const typed = select('.typed')
+if (typed) {
+  let typed_strings = typed.getAttribute('data-typed-items')
+  typed_strings = typed_strings.split(',')
+  new Typed('.typed', {
+    strings: typed_strings,
+    loop: true,
+    typeSpeed: 100,
+    backSpeed: 50,
+    backDelay: 2000
+  });
+}
+
+// Scroll with ofset on page load with hash links in the url
+window.addEventListener('load', () => {
+  if (window.location.hash) {
+    if (select(window.location.hash)) {
+      scrollto(window.location.hash)
+    }
+  }
+});
+
+// Mobile nav toggle
+on('click', '.mobile-nav-toggle', function(e) {
+  select('body').classList.toggle('mobile-nav-active')
+  this.classList.toggle('bi-list')
+  this.classList.toggle('bi-x')
+})
+
+// Scroll with offset on links with a class name .scrollto
+on('click', '.scrollto', function(e) {
+  if (select(this.hash)) {
+    e.preventDefault()
+
+    let body = select('body')
+    if (body.classList.contains('mobile-nav-active')) {
+      body.classList.remove('mobile-nav-active')
+      let navbarToggle = select('.mobile-nav-toggle')
+      navbarToggle.classList.toggle('bi-list')
+      navbarToggle.classList.toggle('bi-x')
+    }
+    scrollto(this.hash)
+  }
+}, true)
+
+// Scrolls to an element with header offset
+const scrollto = (el) => {
+  let elementPos = select(el).offsetTop
+  window.scrollTo({
+    top: elementPos - 20,
+    behavior: 'smooth'
+  })
+}
+
+// particle js pattern
+particlesJS('particles-js',
+  {
+    "particles": {
+      "number": {
+        "value": 140,
+        "density": {
+          "enable": true,
+          "value_area": 600
+        }
+      },
+      "color": {
+        "value": "#ffffff"
+      },
+      "shape": {
+        "type": "circle",
+        "stroke": {
+          "width": 0,
+          "color": "#000000"
+        },
+        "polygon": {
+          "nb_sides": 5
+        },
+        "image": {
+          "src": "img/github.svg",
+          "width": 100,
+          "height": 100
+        }
+      },
+      "opacity": {
+        "value": 0.5,
+        "random": false,
+        "anim": {
+          "enable": false,
+          "speed": 1,
+          "opacity_min": 0.1,
+          "sync": false
+        }
+      },
+      "size": {
+        "value": 1.0,
+        "random": true,
+        "anim": {
+          "enable": false,
+          "speed": 10,
+          "size_min": 0.1,
+          "sync": false
+        }
+      },
+      "line_linked": {
+        "enable": true,
+        "distance": 120,
+        "color": "#ffffff",
+        "opacity": 0.2,
+        "width": 0.5
+      },
+      "move": {
+        "enable": true,
+        "speed": 2,
+        "direction": "none",
+        "random": false,
+        "straight": false,
+        "out_mode": "out",
+        "bounce": false,
+        "attract": {
+          "enable": false,
+          "rotateX": 600,
+          "rotateY": 1200
+        }
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": {
+          "enable": true,
+          "mode": "grab"
+        },
+        "onclick": {
+          "enable": true,
+          "mode": "push"
+        },
+        "resize": true
+      },
+      "modes": {
+        "grab": {
+          "distance": 100,
+          "line_linked": {
+            "opacity": 1
+          }
+        },
+        "bubble": {
+          "distance": 400,
+          "size": 40,
+          "duration": 2,
+          "opacity": 8,
+          "speed": 3
+        },
+        "repulse": {
+          "distance": 200,
+          "duration": 0.4
+        },
+        "push": {
+          "particles_nb": 4
+        },
+        "remove": {
+          "particles_nb": 2
+        }
+      }
+    },
+    "retina_detect": true
+  }
+
+);
