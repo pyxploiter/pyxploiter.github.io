@@ -33,6 +33,7 @@
 :root {
     --myblue: #40D4E9;
     --darkbg: #475063;
+    --bodytextclr: #444;
     --bodydarkbg: linear-gradient(180deg, #303747 43.03%, #42527A 156.2%);
 }
 
@@ -48,7 +49,7 @@ body {
     font-family: Montserrat, sans-serif;
     /* background: var(--bodydarkbg); */
     background: #fff;
-    color: #444;
+    color: var(--bodytextclr);
 }
 
 p {
@@ -57,9 +58,20 @@ p {
 }
 
 a {
-    text-decoration: none;
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    color: var(--bodytextclr);
+    background:transparent;
+    text-decoration:none;
+    transition: 0.5s;
 }
 
+a:hover {
+    text-decoration: underline;
+    color: #0563bb;
+}
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -113,6 +125,7 @@ a {
   
 .nav-menu a,
 .nav-menu a:focus {
+    text-decoration: none;
     display: flex;
     align-items: center;
     color: #45505b;
@@ -474,6 +487,10 @@ a {
     /* transform: translateY(-220px); */
 }
 
+#about .intro > p > a {
+    color:rgb(20, 176, 200)
+}
+
 .work-exp {
     margin: 20px auto;
 }
@@ -483,7 +500,7 @@ a {
 }
 
 td.exp-date {
-    width: 15%;
+    width: 30%;
     font-size: 14px;
     font-weight: 500;
     line-height: 17px;
@@ -492,23 +509,45 @@ td.exp-date {
 }
 
 td.exp-title {
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 20px;
     text-align: left;
 }
 
 td.exp-detail {
+    padding-bottom: 0.5rem;
     font-size: 14px;
-    font-weight: 500;
-    line-height: 17px;
+    /* font-weight: 300; */
+    /* line-height: 17px; */
     text-align: left;
     color: #A3A7B0;
 }
 
-td.exp-skill {
+td.exp-detail > p > a {
+    color: #A3A7B0; 
+}
 
+td.exp-detail > p > a:hover {
+    color: #0563bb; 
+}
+
+td.exp-tasks {
+    font-size: 14px;
+    /* font-weight: 500; */
+    /* line-height: 17px; */
+    text-align: left;
+    color: #777;
+} 
+
+td.exp-tasks > ul, td.exp-tasks > li {
+    list-style: none;
+    padding: 0;
+}
+
+td.exp-tasks li::before {
+    content: "- ";
 } 
 
 .btn-skill {
@@ -633,3 +672,8 @@ td.exp-skill {
     visibility: visible;
     opacity: 1;
 }
+
+/*--------------------------------------------------------------
+# Extras
+--------------------------------------------------------------*/
+
