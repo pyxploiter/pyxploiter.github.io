@@ -3,13 +3,16 @@ window.addEventListener('scroll', () => {
   const isScrolled = window.pageYOffset > 0; // Check if scrolled
   document.body.style.setProperty('--scroll', window.pageYOffset);
   
+  const navbar = document.querySelector('.nav-menu'); 
   const downLink = document.querySelector('.down-link.scrollto'); 
   const scrollPosition = window.scrollY;
   
   if (scrollPosition > 70) { // Adjust the '70' if you want a different trigger point
-    downLink.style.opacity = '0'; // Hide when scrolling down
+    // downLink.style.opacity = '0'; // Hide when scrolling down
+    navbar.classList.add('collapsed-navbar'); // Add a class to collapse
   } else {
     downLink.style.opacity = '1'; // Show when scrolling up
+    navbar.classList.remove('collapsed-navbar'); // Remove the class
   }
 
 }, false);
@@ -64,8 +67,8 @@ window.addEventListener('load', () => {
   AOS.init({
     duration: 1000,
     easing: 'ease-in-out',
-    once: true,
-    mirror: false
+    // once: true,
+    mirror: true
   })
 });
 

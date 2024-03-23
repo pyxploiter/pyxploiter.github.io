@@ -33,6 +33,7 @@
 
 :root {
     --myblue: #40D4E9;
+    --mydarkblue: rgb(20, 176, 200);
     --darkbg: #475063;
     /* --bodytextclr: #eee; */
     --bodytextclr: #444;
@@ -157,16 +158,25 @@ a:hover {
 @media (min-width: 992px) {
     .nav-menu a,
     .nav-menu a:focus {
-      width: 56px;
+      width: 160px;  /* 56*/
     }
   
-    .nav-menu a span,
+    /* .nav-menu a span,
     .nav-menu a:focus span {
       display: none;
-      color: #fff;
+    } */
+
+    .nav-menu.collapsed-navbar a, 
+    .nav-menu.collapsed-navbar a:focus {
+        width: 56px;
+    }
+
+    .nav-menu.collapsed-navbar a span,
+    .nav-menu.collapsed-navbar a:focus span {
+        display: none;
     }
 }
-  
+
 .nav-menu a:hover,
 .nav-menu .active,
 .nav-menu .active:focus,
@@ -174,7 +184,7 @@ a:hover {
     color: #fff;
     background: var(--darkbg);
 }
-  
+
 .nav-menu a:hover span,
 .nav-menu .active span,
 .nav-menu .active:focus span,
@@ -183,13 +193,15 @@ a:hover {
 }
   
 .nav-menu a:hover,
+.nav-menu.collapsed-navbar a:hover,
 .nav-menu li:hover>a {
     width: 100%;
     color: #fff;
 }
   
 .nav-menu a:hover span,
-.nav-menu li:hover>a span {
+.nav-menu li:hover>a span,
+.nav-menu.collapsed-navbar a:hover span {
     display: block;
 }
   
@@ -490,7 +502,7 @@ a:hover {
 }
 
 #about .intro > p > a {
-    color:var(--myblue)
+    color: var(--mydarkblue);
 }
 
 .exp-heading {
@@ -498,7 +510,21 @@ a:hover {
     font-weight: 700;
     margin-top: 20px;
     margin-bottom: 20px;
-    color: #45505b;
+    color: var(--bodytextclr);
+}
+
+.col-lg-3 { 
+    display: flex;             /* Enable Flexbox */
+    align-items: baseline;
+} 
+
+.exp-date {
+    margin:0;
+    font-size: 0.75rem;
+    font-weight: 400;
+    /* line-height: 18px; */
+    text-align: left;
+    color: #888;
 }
 
 .exp-title {
@@ -508,14 +534,15 @@ a:hover {
     /* text-transform: uppercase; */
     font-family: Poppins, sans-serif;
     /* color: var(--myblue); */
-    color:rgb(20, 176, 200);
+    color:var(--mydarkblue);
     margin-bottom: 5px;
 }
 
 .exp-content {
     padding-left: 20px;
+    margin-left: 20px;
     position: relative;
-    border-left: 2px solid #2994D1;
+    border-left: 2px solid var(--mydarkblue);
 }
 
 .exp-content::before {
@@ -526,42 +553,48 @@ a:hover {
     border-radius: 50px;
     left: -9px;
     top: 0;
-    background: #fff;
-    border: 2px solid #0563bb;
-}
-
-.exp-date {
-    width: 25%;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 17px;
-    text-align: left;
-    color: var(--myblue);
+    background: var(--bodydarkbg);
+    border: 2px solid var(--mydarkblue);
 }
 
 .exp-location {
     padding-bottom: 0.5rem;
     font-size: 14px;
-    /* font-weight: 300; */
+    font-weight: 500;
     /* line-height: 17px; */
     text-align: left;
-    color: #A3A7B0;
 }
 
-.exp-tasks {
-    font-size: 14px;
+/* .exp-location a {
+    color: #A3A7B0;
+} */
+
+.exp-tasks, .exp-tasks a {
+    font-size: 13px;
     text-align: left;
     color: #777;
 } 
 
+
 .exp-tasks, .exp-tasks > li {
     list-style: none;
     padding: 0;
+    padding-bottom: 10px;
 }
 
-/* .exp-tasks li::before {
-    content: "- ";
-}  */
+.thesis-title {
+    font-weight: 500;
+}
+
+.thesis-desc {
+    /* color: red; */
+}
+
+.span-achievement {
+    font-size: 0.75rem;
+    font-weight: 400;
+    padding: 5px;
+}
 
 .btn-skill {
     display: inline-block;
