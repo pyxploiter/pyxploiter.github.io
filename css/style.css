@@ -610,6 +610,11 @@ a:hover {
 /*--------------------------------------------------------------
 # Certificates section
 --------------------------------------------------------------*/
+/* #certificate {
+    background-image: url('../img/wave-single.svg');
+    background-size: cover;
+} */
+
 #certificate .section-content .intro {
     text-align: center;
 }
@@ -618,69 +623,54 @@ a:hover {
     margin-bottom: 0px !important;
 }
 
-/* #certificate .section-title h2 {
-    margin-bottom: 0px !important;
-} */
+#main-carousel {
+    width: 48%;
+    margin: 0 auto;
+}
 
-@keyframes slide {
-    from {
-      transform: translateX(0);
+#thumbnail-carousel {
+    width: 50%;
+    margin: 0 auto;
+    padding: 0 60px;
+}
+
+@media (max-width: 991px) {
+    #main-carousel {
+        width: 98%;
+        margin: 0 auto;
     }
-    to {
-      transform: translateX(-100%);
+    
+    #thumbnail-carousel {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 60px;
     }
 }
-  
-.logos {
-    overflow: hidden;
-    padding: 80px 0;
-    background: white;
-    white-space: nowrap;
-    position: relative;
+
+#main-carousel .splide__track {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
 }
-  
-.logos:before,
-.logos:after {
-    position: absolute;
-    top: 0;
-    width: 250px;
+
+#main-carousel .splide__track:hover {
+    transform: translateY(-25px) scale(1.15);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+.splide__slide img {
+    width: 100%;
     height: 100%;
-    content: "";
-    z-index: 2;
-}
-  
-.logos:before {
-    left: 0;
-    background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
-}
-  
-.logos:after {
-    right: 0;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
-}
-  
-.logos:hover .logos-slide {
-    animation-play-state: paused;
-}
-  
-.logos-slide {
-    display: inline-block;
-    animation: 60s slide infinite linear;
-}
-  
-.logos-slide img {
-    height: 200px;
-    margin: 0 30px;
-    border: 2px solid white;
-    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 10px 26px 0 rgba(0, 0, 0, 0.2);
-    transition: transform 0.5s ease;
+    /* object-fit: cover; */
 }
 
-.logos-slide img:hover {
-    transform: scale(1.6);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 18px 0 rgba(0, 0, 0, 0.2);
-    border: 5px solid white;
+.splide__slide {
+    opacity: 0.4;
 }
+
+.splide__slide.is-active {
+    opacity: 1;
+}
+
 /*--------------------------------------------------------------
 # Publications section
 --------------------------------------------------------------*/
@@ -703,12 +693,21 @@ a:hover {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-    background: #f7f8f9;
+    /* background: #f7f8f9; */
     color: #45505b;
     font-size: 14px;
     text-align: center;
+    justify-content: center;
+    justify-items: center;
     padding: 50px 0;
     margin-top: 60px;
+    height: 400px;
+    background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.8)), url('../img/wave.svg');
+    background-size: cover;
+}
+
+#footer .container {
+    margin-top: 80px;
 }
   
 #footer h3 {
@@ -796,4 +795,3 @@ a:hover {
 /*--------------------------------------------------------------
 # Extras
 --------------------------------------------------------------*/
-
