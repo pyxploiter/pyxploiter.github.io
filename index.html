@@ -26,26 +26,35 @@
 	<link href="lib/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 	<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="lib/splide/splide-sea-green.min.css" rel="stylesheet">
+	<link
+		rel="stylesheet"
+		href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"
+	/>
 	
 	<!-- custom css -->
 	<link rel="stylesheet" href="css/style.css">
-
 </head>
-<body>
+<body class="light">
     <div class="wrapper">
 		<!-- Sidebar  -->
 		<i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
 		<header id="header">
 			<nav id="navbar" class="navbar nav-menu">
-				<ul>
-				<li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-				<li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-				<li><a href="#publication" class="nav-link scrollto"><i class="bx bx-book"></i> <span>Publications</span></a></li>
-				<li><a href="#project" class="nav-link scrollto"><i class="bx bx-code-alt"></i> <span>Projects</span></a></li>
-				<li><a href="#blog" class="nav-link scrollto"><i class="bx bx-detail"></i> <span>Blog</span></a></li>
+				<ul class="nav__list">
+				<li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span class="nav__name">Home</span></a></li>
+				<li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span class="nav__name">About</span></a></li>
+				<li><a href="#publication" class="nav-link scrollto"><i class="bx bx-book"></i> <span class="nav__name">Publications</span></a></li>
+				<li><a href="#project" class="nav-link scrollto"><i class="bx bx-code-alt"></i> <span class="nav__name">Projects</span></a></li>
+				<li><a href="#blog" class="nav-link scrollto"><i class="bx bx-detail"></i> <span class="nav__name">Blog</span></a></li>
 				</ul>
 			</nav>
 		</header>
+		<div class="color-switcher">
+			<label id="switch" class="switch">
+				<input type="checkbox" onchange="toggleTheme()" id="slider">
+				<i id="color-sw" class='bi'></i>
+			</label>
+		</div>
 		<!-- Hero section -->
         <section id="hero" class="hero">
             <div class="hero-text">
@@ -103,7 +112,7 @@
 											Graduate Research Assistant
 										</div>
 										<div class="exp-location">
-											<a href="https://www.dfki.de/" target="_blank">DFKI, Kaiserslautern, Germany</a>
+											<a href="https://www.dfki.de/" target="_blank">DFKI, Kaiserslautern, <span class="fi fi-de"></span></a>
 										</div>
 										<ul class="exp-tasks">
 											<li>- Multi-view 3D Hand Pose Estimation</li>
@@ -122,7 +131,7 @@
 											Associate Researcher
 										</div>
 										<div class="exp-location">
-											<a href="https://ncai.pk/" target="_blank">NCAI, Islamabad, Pakistan</a>
+											<a href="https://ncai.pk/" target="_blank">NCAI, Islamabad, <span class="fi fi-pk"></span></a>
 										</div>
 										<ul class="exp-tasks">
 											<li>- Medical Document Classification & Segmentation</li>
@@ -141,7 +150,7 @@
 											Machine Learning Engineer
 										</div>
 										<div class="exp-location">
-											<a href="https://www.linkedin.com/company/dcube-labs/" target="_blank">DCube, Islamabad, Pakistan</a>
+											<a href="https://www.linkedin.com/company/dcube-labs/" target="_blank">DCube, Islamabad, <span class="fi fi-pk"></span></a>
 										</div>
 										<ul class="exp-tasks">
 											<li>- Table Detection and Structure Extraction</li>
@@ -166,7 +175,7 @@
 											Masters in Computer Science
 										</div>
 										<div class="exp-location">
-											<a href="https://www.rptu.de/" target="_blank">RPTU, Kaiserslautern, Germany</a>
+											<a href="https://www.rptu.de/" target="_blank">RPTU, Kaiserslautern, <span class="fi fi-de"></span></a>
 										</div>
 										<ul class="exp-tasks">
 											<li>
@@ -190,7 +199,7 @@
 											Bachelors in Computer Science
 										</div>
 										<div class="exp-location">
-											<a href="https://nust.edu.pk/" target="_blank">NUST, Islamabad, Pakistan</a>
+											<a href="https://nust.edu.pk/" target="_blank">NUST, Islamabad, <span class="fi fi-pk"></span></a>
 										</div>
 										<ul class="exp-tasks">
 											<li>
@@ -396,6 +405,33 @@
     <script src="js/main.js"></script>
 	<script src="lib/aos/aos.js"></script>
 	<script src="lib/bootstrap/js/bootstrap.bundle.js"></script>
+	<script>
+		function loadTheme(){
+			if (localStorage.getItem('theme') === 'dark') {
+				document.body.classList.add('dark');
+				document.body.classList.remove('light');				
+				document.getElementById('color-sw').classList.add('bi-sun');
+				document.getElementById('color-sw').classList.remove('bi-moon');
+			} else {
+				document.body.classList.add('light');
+				document.body.classList.remove('dark');				
+				document.getElementById('color-sw').classList.add('bi-moon');
+				document.getElementById('color-sw').classList.remove('bi-sun');
+			}
+		}
+        // function to toggle between light and dark theme
+        function toggleTheme() {
+            if (localStorage.getItem('theme') === 'dark') {
+				localStorage.setItem('theme', 'light');
+				loadTheme();
+            } else {
+				localStorage.setItem('theme', 'dark');
+				loadTheme();
+            }
+        }
+        // Immediately invoked function to set the theme on initial load
+        loadTheme();
+    </script>
 	<script>
 		// toggle tooltips
 		var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
