@@ -27,6 +27,7 @@
 @import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap);
 /*--------------------------------------------------------------
 # Base
 --------------------------------------------------------------*/
@@ -72,7 +73,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Montserrat, sans-serif;
+    font-family: Ubuntu, Montserrat, sans-serif;
     background: var(--bg-main);
     color: var(--text-main);
 }
@@ -468,8 +469,8 @@ a:hover {
 .hero-text #title {
     margin-top: 40px;
     /* margin-bottom: 0; */
+    font-style: Montserrat, sans-serif;;
     font-size: 26px;
-    font-weight: 500;
     line-height: 27px;
     letter-spacing: 0em;
     color: #fff;
@@ -578,8 +579,10 @@ a:hover {
 
 #about .intro {
     text-align: center;
-    line-height: 30px;
+    line-height: 1.7;
     margin-bottom: 20px;
+    font-family: 'Ubuntu';
+    font-size: 16px;
 }
 
 #about .intro > p > a {
@@ -608,17 +611,6 @@ a:hover {
     color: #888;
 }
 
-.exp-title {
-    line-height: 18px;
-    font-size: 18px;
-    font-weight: 500;
-    /* text-transform: uppercase; */
-    font-family: Poppins, sans-serif;
-    /* color: var(--myblue); */
-    color:var(--text-head);
-    margin-bottom: 5px;
-}
-
 .exp-content {
     padding-left: 20px;
     margin-left: 20px;
@@ -638,9 +630,21 @@ a:hover {
     border: 2px solid var(--text-head);
 }
 
+.exp-title {
+    line-height: 18px;
+    font-size: 18px;
+    font-weight: 500;
+    /* text-transform: uppercase; */
+    font-family: Poppins, sans-serif;
+    /* color: var(--myblue); */
+    color:var(--text-head);
+    margin-bottom: 5px;
+}
+
 .exp-location {
     padding-bottom: 0.5rem;
     font-size: 14px;
+    font-family: Montserrat, sans-serif;
     font-weight: 500;
     /* line-height: 17px; */
     text-align: left;
@@ -659,15 +663,19 @@ a:hover {
 .exp-tasks, .exp-tasks > li {
     list-style: none;
     padding: 0;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 #award-thesis {
+    position: relative;
+    top: 3px;
     font-size: 20px; 
     color: #f0cf11;
 }
 
 #award-gpa {
+    position: relative;
+    top: 3px;
     font-size: 20px; 
     color: #bab9b9;
 }
@@ -680,8 +688,9 @@ a:hover {
     color: var(--text-head);
     border: none;
     text-align: center;
-    text-decoration: none;        
-    font-size: 10px;
+    text-decoration: none; 
+    font-style: Montserrat, Ubuntu;       
+    font-size: 11px;
     font-weight: 400;
     border-radius: 30px;
 }
@@ -761,12 +770,80 @@ a:hover {
     /* margin: 0 auto; */
 }
 
+.nav-tabs {
+    /* margin-bottom: 10px; */
+    /* border-color: var(--text-head); */
+}
+.nav-item .nav-link.active {
+    /* background-color: var(--text-head); */
+    /* color: white; */
+    /* border-color: var(--text-head); */
+    font-weight: 500;
+}
+
+.nav-link {
+    text-decoration: none;
+    /* color: var(--text-head); */
+    color: var(--text-sec);
+}
+
+.nav-link:hover {
+    text-decoration: none;
+    /* color: var(--text-head); */
+    color: black;
+}
+
+.card {
+    padding-top: 10px;
+}
+
+.card-text a {
+    color: var(--text-head);
+}
+.card-links {
+    margin-top: 8px;
+}
+
+.card-links a {
+    text-decoration: none;
+    padding: 4px 0;
+    margin-left: 3px;
+    border-radius: 10px;
+    background-color: #eee;
+}
+
+.card-links a:hover {
+    background-color: #ddd;
+}
+
+.btn-label {
+    position: relative;
+	left: -12px;
+}
+
+.btn-label i {
+    font-size: 15px;
+}
+
+.btn-labeled {
+	padding-top: 0;
+	padding-bottom: 0;
+    margin-bottom: 10px;
+    width: 110px;
+}
+
 /*--------------------------------------------------------------
 # Projects section
 --------------------------------------------------------------*/
 #project {
     /* max-width: 1100px; */
     /* margin: 0 auto; */
+}
+
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: contain;
 }
 
 /*--------------------------------------------------------------
