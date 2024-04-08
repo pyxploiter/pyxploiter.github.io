@@ -149,7 +149,7 @@ a:hover {
 }
 
 .main section {
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -211,11 +211,11 @@ a:hover {
 --------------------------------------------------------------*/
 #header {
     position: fixed;
-    left: 0;
+    left: -5px;
     bottom: 20px;
-    z-index: 9997;
+    z-index: 999;
     transition: all 0.5s;
-    padding: 15px;
+    /* padding: 15px; */
     overflow-y: auto;
 }
   
@@ -237,9 +237,6 @@ a:hover {
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
-  /**
-  * Desktop Navigation 
-  */
 .nav-menu {
     padding: 0;
     display: block;
@@ -263,9 +260,10 @@ a:hover {
     align-items: center;
     color: var(--bg-nav);
     padding: 10px 18px;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     font-size: 15px;
-    border-radius: 50px;
+    /* border-radius: 50px; */
+    border-radius: 0 20px 20px 0px;
     background: #f2f3f5;
     height: 56px;
     width: 100%;
@@ -840,10 +838,170 @@ a:hover {
     /* margin: 0 auto; */
 }
 
-.card-img-top {
-    width: 100%;
-    height: 15vw;
-    object-fit: contain;
+#project .intro {
+    text-align: center;
+    line-height: 1.7;
+    font-family: 'Ubuntu';
+    font-size: 16px;
+}
+
+.icon-box {
+    text-align: center;
+    padding: 50px 20px 50px 20px;
+    transition: all ease-in-out 0.3s;
+    background: #fff;
+    /* box-sizing: border-box; */
+    box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.05);
+}
+
+.icon-box a {
+    text-decoration: none;
+}
+
+.icon-box a.project-lightbox {
+    text-align: end;
+    display: block;
+    /* width: calc(100% - 24px);        */
+    width: 45%;
+    position: absolute;
+    bottom: 0;      
+    right: 12px;           
+    padding: 5px 20px;
+    background-color: #888; 
+    color: #fff;  
+    border: none;
+    font-size: 14px;
+    border-radius: 100px 0 0 0;
+    text-decoration: none; 
+}
+
+.icon-box a.project-lightbox:hover {
+    background-color: var(--text-head);
+}
+
+.icon-box .icon {
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: ease-in-out 0.3s;
+    position: relative;
+    bottom: 20px;
+}
+  
+.icon-box .icon i {
+    font-size: 36px;
+    transition: 0.5s;
+    position: relative;
+}
+  
+.icon-box .icon svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+  
+.icon-box .icon svg path {
+    transition: 0.5s;
+    fill: #f5f5f5;
+}
+  
+.icon-box h4 a {
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--bg-nav);
+    margin: 10px 0 15px 0;
+}
+  
+.icon-box p {
+    line-height: 24px;
+    font-size: 13px;
+    color: var(--text-sec);
+    margin-bottom: 0;
+}
+  
+.icon-box:hover {
+    border-color: #fff;
+    box-shadow: 0px 0 35px 0 rgba(0, 0, 0, 0.1);
+    
+}
+
+.icon-box:hover .icon {
+    transform: scale(1.1);
+}
+  
+.iconbox-blue .icon i {
+    color: #47aeff;
+}
+  
+.iconbox-blue:hover .icon i {
+    color: #fff;
+}
+  
+.iconbox-blue:hover .icon path {
+    fill: #47aeff;
+}
+  
+.iconbox-orange .icon i {
+    color: #ffa76e;
+}
+  
+.iconbox-orange:hover .icon i {
+    color: #fff;
+}
+  
+.iconbox-orange:hover .icon path {
+    fill: #ffa76e;
+}
+  
+.iconbox-pink .icon i {
+    color: #e80368;
+}
+  
+.iconbox-pink:hover .icon i {
+    color: #fff;
+}
+  
+.iconbox-pink:hover .icon path {
+    fill: #e80368;
+}
+  
+.iconbox-yellow .icon i {
+    color: #ffbb2c;
+}
+  
+.iconbox-yellow:hover .icon i {
+    color: #fff;
+}
+  
+.iconbox-yellow:hover .icon path {
+    fill: #ffbb2c;
+}
+  
+.iconbox-red .icon i {
+    color: #47aeff;
+}
+  
+.iconbox-red:hover .icon i {
+    color: #fff;
+}
+  
+.iconbox-red:hover .icon path {
+    fill: #47aeff;
+}
+  
+.iconbox-teal .icon i {
+    color: #11dbcf;
+}
+  
+.iconbox-teal:hover .icon i {
+    color: #fff;
+}
+  
+.iconbox-teal:hover .icon path {
+    fill: #11dbcf;
 }
 
 /*--------------------------------------------------------------

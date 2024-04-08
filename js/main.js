@@ -1,3 +1,49 @@
+// color theme switching
+function loadTheme(){
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark');
+    document.body.classList.remove('light');				
+    document.getElementById('color-sw').classList.add('bi-sun');
+    document.getElementById('color-sw').classList.remove('bi-moon');
+  } else {
+    document.body.classList.add('light');
+    document.body.classList.remove('dark');				
+    document.getElementById('color-sw').classList.add('bi-moon');
+    document.getElementById('color-sw').classList.remove('bi-sun');
+  }
+}
+// function to toggle between light and dark theme
+function toggleTheme() {
+  if (localStorage.getItem('theme') === 'dark') {
+    localStorage.setItem('theme', 'light');
+    loadTheme();
+  } else {
+    localStorage.setItem('theme', 'dark');
+    loadTheme();
+  }
+}
+// Immediately invoked function to set the theme on initial load
+loadTheme();
+
+// toggle tooltips
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+
+// publications tabs activation
+document.addEventListener("DOMContentLoaded", function(){
+  var tabList = [].slice.call(document.querySelectorAll("#myTab a"));
+  tabList.forEach(function(tab){
+    var tabTrigger = new bootstrap.Tab(tab);
+
+    tab.addEventListener("click", function(event){
+      event.preventDefault();
+      tabTrigger.show();
+    });
+  });
+});
+
 // set scroll variable for animation
 window.addEventListener('scroll', () => {
   const isScrolled = window.pageYOffset > 0; // Check if scrolled
@@ -255,3 +301,40 @@ particlesJS('particles-js',
   }
 
 );
+
+// project lightbox initializations
+const portfolioDetailsLightbox = GLightbox({
+  selector: '.project-lightbox',
+  width: '90%',
+  height: '90vh',
+  autoplayVideos: true
+});
+
+// certificates slider
+document.addEventListener( 'DOMContentLoaded', function () {
+  var main = new Splide( '#main-carousel', {
+    type      : 'fade',
+    rewind    : true,
+    pagination: true,
+    arrows    : false,
+    autoplay    : true,
+    interval    : 2000,
+    pauseOnHover: true,
+    lazyLoad : true,
+    // updateOnMove: true,
+  } );
+
+  var thumbnails = new Splide( '#thumbnail-carousel', {
+    fixedWidth  : 120,
+    fixedHeight : 80,
+    gap         : 10,
+    rewind      : true,
+    pagination  : false,
+    isNavigation: true,
+    focus      : 'center',
+  } );
+
+  main.sync( thumbnails );
+  main.mount();
+  thumbnails.mount();
+} );
