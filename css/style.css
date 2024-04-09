@@ -632,8 +632,8 @@ a:hover {
 }
 
 .col-lg-3 { 
-    display: flex;
-    align-items: baseline;
+    position: relative;
+    bottom: 6px;
 } 
 
 .exp-date {
@@ -911,10 +911,6 @@ a:hover {
     text-decoration: none; 
 }
 
-.icon-box a.project-lightbox:hover {
-    background-color: var(--text-head);
-}
-
 .icon-box .icon {
     margin: 0 auto;
     width: 100px;
@@ -949,6 +945,7 @@ a:hover {
     font-size: 20px;
     color: var(--bg-nav);
     margin: 10px 0 15px 0;
+    pointer-events: none;
 }
   
 .icon-box p {
@@ -960,8 +957,7 @@ a:hover {
   
 .icon-box:hover {
     border-color: #fff;
-    box-shadow: 0px 0 35px 0 rgba(0, 0, 0, 0.1);
-    
+    box-shadow: 0px 0 35px 0 rgba(0, 0, 0, 0.1);   
 }
 
 .icon-box:hover .icon {
@@ -979,6 +975,10 @@ a:hover {
 .iconbox-blue:hover .icon path {
     fill: #47aeff;
 }
+
+.iconbox-blue:hover .learn-more-container a {
+    background-color: #47aeff;
+}
   
 .iconbox-orange .icon i {
     color: #ffa76e;
@@ -990,6 +990,10 @@ a:hover {
   
 .iconbox-orange:hover .icon path {
     fill: #ffa76e;
+}
+
+.iconbox-orange:hover .learn-more-container a {
+    background-color: #ffa76e;
 }
   
 .iconbox-pink .icon i {
@@ -1003,6 +1007,10 @@ a:hover {
 .iconbox-pink:hover .icon path {
     fill: #e80368;
 }
+
+.iconbox-pink:hover .learn-more-container a {
+    background-color: #e80368;
+}
   
 .iconbox-yellow .icon i {
     color: #ffbb2c;
@@ -1015,9 +1023,13 @@ a:hover {
 .iconbox-yellow:hover .icon path {
     fill: #ffbb2c;
 }
+
+.iconbox-yellow:hover .learn-more-container a {
+    background-color: #ffbb2c;
+}
   
 .iconbox-red .icon i {
-    color: #47aeff;
+    color: #ff2c2c;
 }
   
 .iconbox-red:hover .icon i {
@@ -1025,7 +1037,11 @@ a:hover {
 }
   
 .iconbox-red:hover .icon path {
-    fill: #47aeff;
+    fill: #ff2c2c;
+}
+
+.iconbox-red:hover .learn-more-container a {
+    background-color: #ff2c2c;
 }
   
 .iconbox-teal .icon i {
@@ -1038,6 +1054,10 @@ a:hover {
   
 .iconbox-teal:hover .icon path {
     fill: #11dbcf;
+}
+
+.iconbox-teal:hover .learn-more-container a {
+    background-color: #11dbcf;
 }
 
 /*--------------------------------------------------------------
