@@ -53,7 +53,7 @@ window.addEventListener('scroll', () => {
   const downLink = document.querySelector('.down-link.scrollto'); 
   const scrollPosition = window.scrollY;
   
-  if (scrollPosition > 70) { // Adjust the '70' if you want a different trigger point
+  if (scrollPosition > 200) { // Adjust the '70' if you want a different trigger point
     // downLink.style.opacity = '0'; // Hide when scrolling down
     navbar.classList.add('collapsed-navbar'); // Add a class to collapse
   } else {
