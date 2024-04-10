@@ -604,6 +604,10 @@ a:hover {
     .hero-text #name {
         font-size: 32px;
     }
+
+    .hero-text #title {
+        font-size: 22px;
+    }
 }
 
 /*--------------------------------------------------------------
