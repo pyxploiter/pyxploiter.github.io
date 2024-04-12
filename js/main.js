@@ -337,4 +337,15 @@ document.addEventListener( 'DOMContentLoaded', function () {
   main.sync( thumbnails );
   main.mount();
   thumbnails.mount();
+
+  // open images in new tab on click
+  const mainCarousel = document.getElementById("main-carousel"); 
+  const splideSlides = mainCarousel.querySelectorAll(".splide__slide");
+
+  splideSlides.forEach(slide => {
+      slide.addEventListener('click', function() {
+          const image = slide.querySelector('img'); // Find the image within the slide
+          window.open(image.src, '_blank');
+      });
+  });
 } );
