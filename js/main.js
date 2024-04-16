@@ -354,27 +354,30 @@ document.addEventListener( 'DOMContentLoaded', function () {
 const pupils = document.querySelectorAll(".eye");
 const clip_dist = 2;
 
-let requestId;
-
-function updatePupilPosition(e) {
+window.addEventListener("mousemove", (e) => {
+    if (e.pageY > 650) {
+      return;
+    }
     pupils.forEach((pupil) => {
         // get x and y position of cursor
-        const rect = pupil.getBoundingClientRect();
-        let x = (e.pageX - rect.left) / 30;
-        let y = (e.pageY - rect.top) / 30;
+        var rect = pupil.getBoundingClientRect();
+        var x = (e.pageX - rect.left) / 30;
+        var y = (e.pageY - rect.top) / 30;
 
         // Clip x and y values to range [-clip_dist, clip_dist]
         x = Math.min(Math.max(x, -clip_dist), clip_dist);
-        y = Math.min(Math.max(y, -clip_dist), clip_dist + 4);
+        y = Math.min(Math.max(y, -clip_dist), clip_dist+4);
 
         // Convert x and y back to pixels
         x = x + "px";
         y = y + "px";
-
+        
+        // console.log(pupil.style.transform);
         pupil.style.transform = "translate3d(" + x + "," + y + ", 0px)";
-
+        
         if (pupil.classList.contains("evil-eye")) {
-            return; // Skip further processing for evil-eye
+            // Skip the rest of the statements in this iteration
+            return;
         }
 
         if (pupil.classList.contains("left-eye")) {
@@ -385,22 +388,4 @@ function updatePupilPosition(e) {
             pupil.style.transformOrigin = "53.5317px 71.1502px";
         }
     });
-}
-
-function animatePupils() {
-    requestId = requestAnimationFrame(animatePupils);
-    updatePupilPosition(event);
-}
-
-// Start animation loop when mouse moves
-window.addEventListener("mousemove", (e) => {
-    if (!requestId) {
-        animatePupils();
-    }
-});
-
-// Stop animation loop when mouse stops moving
-window.addEventListener("mouseout", () => {
-    cancelAnimationFrame(requestId);
-    requestId = undefined;
 });
