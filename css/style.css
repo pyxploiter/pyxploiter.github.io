@@ -465,7 +465,6 @@ a:hover {
     transform: translateX(-50%); */
     /* width: 160px;
     height: 160px; */
-    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1); */
 }
 
 .hero-text {
@@ -541,14 +540,6 @@ a:hover {
     color:var(--text-main);
     font-size: 28px;
     line-height: 1;
-    
-    /* background: var(--darkbg);
-    color: #fff;
-    font-size: 18px;
-    padding: 6px 0;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px; */
 }
   
 #hero .social-links a:hover {
@@ -557,8 +548,9 @@ a:hover {
 }
 
 .down-link {
-    display: flex;
-    justify-content: center;
+    display: block;
+    width: max-content;
+    margin: 0 auto;
 }
 
 .arrows {

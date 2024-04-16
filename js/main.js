@@ -349,3 +349,58 @@ document.addEventListener( 'DOMContentLoaded', function () {
       });
   });
 } );
+
+// move avatar eyes with cursor
+const pupils = document.querySelectorAll(".eye");
+const clip_dist = 2;
+
+let requestId;
+
+function updatePupilPosition(e) {
+    pupils.forEach((pupil) => {
+        // get x and y position of cursor
+        const rect = pupil.getBoundingClientRect();
+        let x = (e.pageX - rect.left) / 30;
+        let y = (e.pageY - rect.top) / 30;
+
+        // Clip x and y values to range [-clip_dist, clip_dist]
+        x = Math.min(Math.max(x, -clip_dist), clip_dist);
+        y = Math.min(Math.max(y, -clip_dist), clip_dist + 4);
+
+        // Convert x and y back to pixels
+        x = x + "px";
+        y = y + "px";
+
+        pupil.style.transform = "translate3d(" + x + "," + y + ", 0px)";
+
+        if (pupil.classList.contains("evil-eye")) {
+            return; // Skip further processing for evil-eye
+        }
+
+        if (pupil.classList.contains("left-eye")) {
+            pupil.style.transform += "rotate(-20.2957deg)";
+            pupil.style.transformOrigin = "82.1644px 71.1117px";
+        } else {
+            pupil.style.transform += "rotate(30deg)";
+            pupil.style.transformOrigin = "53.5317px 71.1502px";
+        }
+    });
+}
+
+function animatePupils() {
+    requestId = requestAnimationFrame(animatePupils);
+    updatePupilPosition(event);
+}
+
+// Start animation loop when mouse moves
+window.addEventListener("mousemove", (e) => {
+    if (!requestId) {
+        animatePupils();
+    }
+});
+
+// Stop animation loop when mouse stops moving
+window.addEventListener("mouseout", () => {
+    cancelAnimationFrame(requestId);
+    requestId = undefined;
+});
