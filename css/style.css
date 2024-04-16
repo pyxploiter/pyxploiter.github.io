@@ -439,13 +439,42 @@ a:hover {
     }
 }
 
+.hidden {
+    opacity: 0;
+    /* display: none; */
+}
+
+.evil-eye, .normal-eye {
+    transition: all 0.2s;
+}
+
+#avatar:hover .evil-eye {
+    /* display: block; */
+    opacity: 1;
+}
+
+#avatar:hover .normal-eye {
+    /* display: none; */
+    opacity: 0;
+}
+
+#avatar {
+    /* position: absolute; */
+    /* top: 2%;
+    left: 50%;
+    transform: translateX(-50%); */
+    /* width: 160px;
+    height: 160px; */
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1); */
+}
+
 .hero-text {
     position: relative;
     left: 50%; 
-    top: 50%;
+    top: 55%;
     transform: translateX(-50%) translateY(-100px);
     /* margin: 150px auto 90px auto; */
-    max-width: 900px;
+    /* max-width: 900px; */
     text-align: center;
     pointer-events: none;
 }
@@ -482,9 +511,9 @@ a:hover {
     z-index: 9;
     /* margin: 0 auto; */
     left: 50%;
-    transform: translateX(-50%) translateY(-100px);
-    text-align: center;
-    pointer-events: none;
+    transform: translateX(-50%) translateY(-120px);
+    /* text-align: center; */
+    /* pointer-events: none; */
 }
 
 .profile-picture {
@@ -501,7 +530,7 @@ a:hover {
 }
 
 #hero .social-links {
-    margin-top: 125px;
+    margin-top: 50px;
     text-align: center;
 }
   
@@ -536,7 +565,7 @@ a:hover {
     width: 60px;
     height: 72px;
     position: relative;
-    top: 40px;
+    top: 60px;
 }
   
 .arrows path {
@@ -600,7 +629,7 @@ a:hover {
     }
 
     .hero-text #title {
-        font-size: 16px;
+        font-size: 20px;
         margin-top: 14px;
     }
 }
@@ -611,7 +640,7 @@ a:hover {
     }
 
     .hero-text #title {
-        font-size: 12px;
+        font-size: 16px;
         margin-top: 10px;
         /* line-height: 12px; */
     }
@@ -697,6 +726,28 @@ a:hover {
     font-weight: 500;
     /* line-height: 17px; */
     text-align: left;
+}
+
+.fi-pk {
+    background-image: url(../img/flags/pk.svg);
+}
+
+.fi-de {
+    background-image: url(../img/flags/de.svg);
+}
+
+.fi {
+    position: relative;
+    display: inline-block;
+    width: 1.333333em;
+    line-height: 1em;   
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+.fi:before {
+    content: " ";
 }
 
 /* .exp-location a {

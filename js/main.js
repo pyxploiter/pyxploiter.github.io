@@ -315,7 +315,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
   var main = new Splide( '#main-carousel', {
     type      : 'fade',
     rewind    : true,
-    pagination: true,
+    pagination: false,
     arrows    : false,
     autoplay    : true,
     interval    : 2000,
