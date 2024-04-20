@@ -31,19 +31,6 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl)
 })
 
-// publications tabs activation
-document.addEventListener("DOMContentLoaded", function(){
-  var tabList = [].slice.call(document.querySelectorAll("#myTab a"));
-  tabList.forEach(function(tab){
-    var tabTrigger = new bootstrap.Tab(tab);
-
-    tab.addEventListener("click", function(event){
-      event.preventDefault();
-      tabTrigger.show();
-    });
-  });
-});
-
 // set scroll variable for animation
 window.addEventListener('scroll', () => {
   const isScrolled = window.pageYOffset > 0; // Check if scrolled
@@ -187,7 +174,7 @@ if (typed) {
   });
 }
 
-// particle js pattern
+// hero particle js pattern
 particlesJS('particles-js',
   {
     "particles": {
@@ -302,6 +289,118 @@ particlesJS('particles-js',
 
 );
 
+// footer particle js pattern
+particlesJS('nasa-js', {
+    "particles": {
+      "number": {
+        "value": 250,
+        "density": {
+          "enable": true,
+          "value_area": 800
+        }
+      },
+      "color": {
+        "value": "#ffffff"
+      },
+      "shape": {
+        "type": "circle",
+        "stroke": {
+          "width": 0,
+          "color": "#000000"
+        },
+        "polygon": {
+          "nb_sides": 5
+        },
+        "image": {
+          "src": "img/github.svg",
+          "width": 100,
+          "height": 100
+        }
+      },
+      "opacity": {
+        "value": 1,
+        "random": true,
+        "anim": {
+          "enable": true,
+          "speed": 1,
+          "opacity_min": 0,
+          "sync": false
+        }
+      },
+      "size": {
+        "value": 3,
+        "random": true,
+        "anim": {
+          "enable": false,
+          "speed": 4,
+          "size_min": 0.3,
+          "sync": false
+        }
+      },
+      "line_linked": {
+        "enable": false,
+        "distance": 150,
+        "color": "#ffffff",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 1,
+        "direction": "none",
+        "random": true,
+        "straight": false,
+        "out_mode": "out",
+        "bounce": false,
+        "attract": {
+          "enable": false,
+          "rotateX": 600,
+          "rotateY": 600
+        }
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": {
+          "enable": true,
+          "mode": "repulse"
+        },
+        "onclick": {
+          "enable": true,
+          "mode": "push"
+        },
+        "resize": true
+      },
+      "modes": {
+        "grab": {
+          "distance": 400,
+          "line_linked": {
+            "opacity": 1
+          }
+        },
+        "bubble": {
+          "distance": 150,
+          "size": 0,
+          "duration": 2,
+          "opacity": 0,
+          "speed": 3
+        },
+        "repulse": {
+          "distance": 150,
+          "duration": 0.4
+        },
+        "push": {
+          "particles_nb": 4
+        },
+        "remove": {
+          "particles_nb": 2
+        }
+      }
+    },
+    "retina_detect": true
+  });
+
 // project lightbox initializations
 const portfolioDetailsLightbox = GLightbox({
   selector: '.project-lightbox',
@@ -310,82 +409,128 @@ const portfolioDetailsLightbox = GLightbox({
   autoplayVideos: true
 });
 
-// certificates slider
+// certificates slider, publications navbar, avatar animation
 document.addEventListener( 'DOMContentLoaded', function () {
-  var main = new Splide( '#main-carousel', {
-    type      : 'fade',
-    rewind    : true,
-    pagination: false,
-    arrows    : false,
-    autoplay    : true,
-    interval    : 2000,
-    pauseOnHover: true,
-    lazyLoad : true,
-    // updateOnMove: true,
-  } );
+    // certificates slider
+    var main = new Splide( '#main-carousel', {
+        type      : 'fade',
+        rewind    : true,
+        pagination: false,
+        arrows    : false,
+        autoplay    : true,
+        interval    : 2000,
+        pauseOnHover: true,
+        lazyLoad : true,
+        // updateOnMove: true,
+    } );
 
-  var thumbnails = new Splide( '#thumbnail-carousel', {
-    fixedWidth  : 120,
-    fixedHeight : 80,
-    gap         : 10,
-    rewind      : true,
-    pagination  : false,
-    isNavigation: true,
-    focus      : 'center',
-  } );
+    var thumbnails = new Splide( '#thumbnail-carousel', {
+        fixedWidth  : 120,
+        fixedHeight : 80,
+        gap         : 10,
+        rewind      : true,
+        pagination  : false,
+        isNavigation: true,
+        focus      : 'center',
+    } );
 
-  main.sync( thumbnails );
-  main.mount();
-  thumbnails.mount();
+    main.sync( thumbnails );
+    main.mount();
+    thumbnails.mount();
 
-  // open images in new tab on click
-  const mainCarousel = document.getElementById("main-carousel"); 
-  const splideSlides = mainCarousel.querySelectorAll(".splide__slide");
+    // open images in new tab on click
+    const mainCarousel = document.getElementById("main-carousel"); 
+    const splideSlides = mainCarousel.querySelectorAll(".splide__slide");
 
-  splideSlides.forEach(slide => {
-      slide.addEventListener('click', function() {
-          const image = slide.querySelector('img'); // Find the image within the slide
-          window.open(image.src, '_blank');
-      });
-  });
-} );
-
-// move avatar eyes with cursor
-const pupils = document.querySelectorAll(".eye");
-const clip_dist = 2;
-
-window.addEventListener("mousemove", (e) => {
-    if (e.pageY > 650) {
-      return;
-    }
-    pupils.forEach((pupil) => {
-        // get x and y position of cursor
-        var rect = pupil.getBoundingClientRect();
-        var x = (e.pageX - rect.left) / 30;
-        var y = (e.pageY - rect.top) / 30;
-
-        // Clip x and y values to range [-clip_dist, clip_dist]
-        x = Math.min(Math.max(x, -clip_dist), clip_dist);
-        y = Math.min(Math.max(y, -clip_dist), clip_dist+4);
-
-        // Convert x and y back to pixels
-        x = x + "px";
-        y = y + "px";
-        
-        // console.log(pupil.style.transform);
-        pupil.style.transform = "translate3d(" + x + "," + y + ", 0px)";
-        
-        if (pupil.classList.contains("evil-eye")) {
-            // Skip the rest of the statements in this iteration
-            return;
-        }
-
-        if (pupil.classList.contains("left-eye")) {
-            pupil.style.transform += "rotate(-20.2957deg)";
-            pupil.style.transformOrigin = "82.1644px 71.1117px";
-        } else {
-            pupil.style.transform += "rotate(30deg)";
-            pupil.style.transformOrigin = "53.5317px 71.1502px";
-        }
+    splideSlides.forEach(slide => {
+        slide.addEventListener('click', function() {
+            const image = slide.querySelector('img'); // Find the image within the slide
+            window.open(image.src, '_blank');
+        });
     });
-});
+
+    // publications tabs activation
+    var tabList = [].slice.call(document.querySelectorAll("#myTab a"));
+    tabList.forEach(function(tab){
+        var tabTrigger = new bootstrap.Tab(tab);
+
+        tab.addEventListener("click", function(event){
+        event.preventDefault();
+        tabTrigger.show();
+        });
+    });
+
+    // avatar animations
+    const avatar = document.getElementById("avatar");
+    const normalGroup = document.getElementById("normal");
+    const evilGroup = document.getElementById("evil");
+    const surprisedGroup = document.getElementById("surprised");
+    const evilSurprisedGroup = document.getElementById("evil-surprised");
+
+    let isEvilMode = false;
+
+    function showNormalEyes() {
+        normalGroup.classList.remove("hidden");
+        evilGroup.classList.add("hidden");
+        surprisedGroup.classList.add("hidden");
+        evilSurprisedGroup.classList.add("hidden");
+    }
+
+    function showEvilEyes() {
+        evilGroup.classList.remove("hidden");
+        normalGroup.classList.add("hidden");
+        surprisedGroup.classList.add("hidden");
+        evilSurprisedGroup.classList.add("hidden");
+    }
+
+    function showSurprisedEyes() {
+        surprisedGroup.classList.remove("hidden");
+        normalGroup.classList.add("hidden");
+        evilGroup.classList.add("hidden");
+        evilSurprisedGroup.classList.add("hidden");
+    }
+
+    function showEvilSurprisedEyes() {
+        evilSurprisedGroup.classList.remove("hidden");
+        normalGroup.classList.add("hidden");
+        surprisedGroup.classList.add("hidden");
+        evilGroup.classList.add("hidden");
+    }
+
+    // Function to toggle between normal and evil modes
+    function toggleMode() {
+        isEvilMode = !isEvilMode;
+        if (isEvilMode) {
+            // showEvilEyes();
+            showEvilSurprisedEyes();
+        } else {
+            // showNormalEyes();
+            showSurprisedEyes();
+        }
+    }
+
+    // Function to handle hover events
+    function handleHover() {
+        if (isEvilMode) {
+            showEvilSurprisedEyes();
+        } else {
+            showSurprisedEyes();
+        }
+    }
+
+    // Function to handle mouse leave events
+    function handleMouseLeave() {
+        if (isEvilMode) {
+            showEvilEyes();
+        } else {
+            showNormalEyes();
+        }
+    }
+
+    // Toggle mode on click event
+    avatar.addEventListener("click", toggleMode);
+
+    // Show/hide elements on hover events
+    avatar.addEventListener("mouseenter", handleHover);
+    avatar.addEventListener("mouseleave", handleMouseLeave);
+} );

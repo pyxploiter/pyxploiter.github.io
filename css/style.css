@@ -441,24 +441,22 @@ a:hover {
 
 .hidden {
     opacity: 0;
-    /* display: none; */
 }
 
-.evil-eye, .normal-eye {
+.eye {
     transition: all 0.2s;
 }
 
-#avatar:hover .evil-eye {
-    /* display: block; */
-    opacity: 1;
-}
-
-#avatar:hover .normal-eye {
-    /* display: none; */
+/* #avatar:hover .normal-eye {
     opacity: 0;
 }
 
+#avatar:hover .surprised-eye {
+    opacity: 1;
+} */
+
 #avatar {
+    cursor: pointer;
     /* position: absolute; */
     /* top: 2%;
     left: 50%;
@@ -1170,25 +1168,49 @@ a:hover {
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
+#nasa-js {
+    z-index: 1;
+    position: relative;
+    bottom: -290px;
+    width: 100%;
+    /* border: 2px solid #3f3; */
+    height: 290px;
+}
+
+#nasa-js canvas {
+    opacity: 0.5;
+    /* border: 2px solid #333; */
+    animation: flatten 1s linear infinite;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -0.003s);
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+
 #footer {
+    position: relative;
+    /* top: -300px; */
+    bottom: 0;
     font-size: 14px;
     text-align: center;
     justify-content: center;
     justify-items: center;
     padding: 50px 0;
-    margin-top: 60px;
+    /* margin-top: 60px; */
     height: 300px;
-    background: #f7f8f9;
+    /* background: #f7f8f9; */
+    background-color: var(--bg-nav);
     color: #ddd;
-    background-image: url(https://www.w3schools.com/images/background_in_space.gif);
-    background-repeat: repeat;
+    /* background-image: url(https://www.w3schools.com/images/background_in_space.gif); */
+    /* background-repeat: repeat; */
     /* background-position: right bottom, center center left top; */
     /* background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.8)), url('../img/wave.svg');
     background-size: cover; */
 }
 
 /* #footer .container {
-    margin-top: 80px;
+    position: relative;
+    top: -00px;
 } */
   
 #footer h3 {
@@ -1208,7 +1230,12 @@ a:hover {
 }
   
 #footer .social-links {
-    margin: 0 0 40px 0;
+    position: relative;
+    z-index: 2;
+    width: 250px;
+    /* margin: 0 auto; */
+    margin: 0 auto 40px auto;
+    /* border: 2px solid red; */
 }
   
 #footer .social-links a {

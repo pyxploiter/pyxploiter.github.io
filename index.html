@@ -109,18 +109,25 @@
 						<path d="M78.3282 131.339C78.3282 130.498 77.6469 129.817 76.8063 129.817H74.0669V141.992H76.8063C77.6469 141.992 78.3282 141.311 78.3282 140.47V131.339Z"/>
 					</g>
 					<!-- normal eyes -->
-					<g fill="url(#surprised_eye_color)">
+					<g id="normal" fill="url(#surprised_eye_color)">
 						<ellipse class="eye left-eye normal-eye" cx="82.1644" cy="71.1117" rx="9.82337" ry="6.0489" transform="rotate(-20.2957 82.1644 71.1117)"/>
 						<ellipse class="eye right-eye normal-eye" cx="53.5317" cy="71.1502" rx="9.82337" ry="6.0489" transform="rotate(30 53.5317 71.1502)"/>
 					</g>
 					<!-- surprised eyes -->
-					<g fill="url(#surprised_eye_color)">
-						<ellipse class="eye left-eye surprised-eye hidden" cx="81.9999" cy="71.0002" rx="10" ry="8" transform="rotate(-75 81.9999 71.0002)"/>
-						<ellipse class="eye right-eye surprised-eye hidden" cx="53.4999" cy="70.9998" rx="10" ry="8.5" transform="rotate(75 53.4999 70.9998)"/>
+					<g id="surprised" class="hidden" fill="url(#surprised_eye_color)">
+						<ellipse class="eye left-eye surprised-eye" cx="81.9999" cy="71.0002" rx="10" ry="8" transform="rotate(-75 81.9999 71.0002)"/>
+						<ellipse class="eye right-eye surprised-eye" cx="53.4999" cy="70.9998" rx="10" ry="8.5" transform="rotate(75 53.4999 70.9998)"/>
+					</g>
+					<!-- evil surprised eyes -->
+					<g id="evil-surprised" class="hidden" fill="url(#evil_eye_color)">
+						<ellipse class="eye left-eye evil-surprised-eye" cx="81.9999" cy="71.0002" rx="10" ry="8" transform="rotate(-75 81.9999 71.0002)"/>
+						<ellipse class="eye right-eye evil-surprised-eye" cx="53.4999" cy="70.9998" rx="10" ry="8.5" transform="rotate(75 53.4999 70.9998)"/>
 					</g>
 					<!-- evil eyes -->
-					<path class="eye left-eye evil-eye hidden" d="M85.5318 76.3886C80.8334 79.1012 75.6704 78.9549 74.0001 76.0618L91.5335 68.4999C91.4111 71.1611 89.1291 74.3117 85.5318 76.3886Z" fill="url(#left_eye_color)"/>
-					<path class="eye right-eye evil-eye hidden" d="M50.5073 76.3886C55.2057 79.1012 60.3686 78.9549 62.039 76.0618L44.5055 68.4999C44.628 71.1611 46.91 74.3117 50.5073 76.3886Z" fill="url(#right_eye_color)"/>
+					<g id="evil" class="hidden">
+						<path fill="url(#left_eye_color)" class="eye left-eye evil-eye" d="M85.5318 76.3886C80.8334 79.1012 75.6704 78.9549 74.0001 76.0618L91.5335 68.4999C91.4111 71.1611 89.1291 74.3117 85.5318 76.3886Z"/>
+						<path fill="url(#right_eye_color)" class="eye right-eye evil-eye" d="M50.5073 76.3886C55.2057 79.1012 60.3686 78.9549 62.039 76.0618L44.5055 68.4999C44.628 71.1611 46.91 74.3117 50.5073 76.3886Z"/>
+					</g>
 					<!-- gradients definitions -->
 					<defs>
 						<linearGradient id="face_color"><stop stop-color="#07080A"/></linearGradient>
@@ -131,6 +138,7 @@
 						<linearGradient id="laptop_color"><stop stop-color="#475063"/></linearGradient>
 						<linearGradient id="normal_eye_color"><stop stop-color="#1D9FB5"/></linearGradient>
 						<linearGradient id="surprised_eye_color"><stop stop-color="#58E7FF"/></linearGradient>
+						<linearGradient id="evil_eye_color"><stop stop-color="#FF2E01"/></linearGradient>
 						<linearGradient id="right_eye_color" x1="52" y1="72" x2="52" y2="77" gradientUnits="userSpaceOnUse">
 							<stop stop-color="#FF2E01"/>
 							<stop offset="1" stop-color="#9E2106"/>
@@ -697,6 +705,7 @@
 			</section>
         </div>
 		<!-- Footer -->
+		<div id="nasa-js"></div>
         <footer id="footer">
 			<div class="container">
 				<h3><img src="img/logo.svg" width="60px"> PyXploiter</h3>
@@ -705,7 +714,7 @@
 					<a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
 					<a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
 					<a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-					<a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+					<a href="#" class="github"><i class="bx bxl-github"></i></a>
 					<a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
 				</div>
 				<div class="copyright">
