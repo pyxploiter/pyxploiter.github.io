@@ -100,6 +100,10 @@ a:hover {
     color: var(--text-head);
 }
 
+.hidden {
+    opacity: 0;
+}
+
 /*--------------------------------------------------------------
 # Color switcher
 --------------------------------------------------------------*/
@@ -155,8 +159,17 @@ a:hover {
     /* height: 500px; */
 }
 
+.container-fluid {
+    padding: 0;
+}
+
 .main section {
-    max-width: 1000px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.main .section-content {
+    max-width: 1140px;
     margin: 0 auto;
 }
 
@@ -164,7 +177,8 @@ a:hover {
     text-align: center;
     /* padding-bottom: 30px; */
     /* margin: 80px auto; */
-    margin-top: 100px;
+    /* margin-top: 100px; */
+    /* padding-top: 10px; */
     margin-bottom: 40px;
 }
   
@@ -229,8 +243,6 @@ a:hover {
 @media (max-width: 991px) {
     #header {
       width: 200px;
-      /* background: #fff; */
-      /* border-right: 1px solid #e6e9ec; */
       left: -300px;
     }
 }
@@ -308,6 +320,7 @@ a:hover {
 .nav-menu li:hover>a {
     color: #fff;
     background: var(--bg-nav);
+    border: 1px solid rgba(250, 250, 250, 0.1);
 }
 
 .nav-menu a:hover span,
@@ -439,37 +452,11 @@ a:hover {
     }
 }
 
-.hidden {
-    opacity: 0;
-}
-
-.eye {
-    transition: all 0.2s;
-}
-
-/* #avatar:hover .normal-eye {
-    opacity: 0;
-}
-
-#avatar:hover .surprised-eye {
-    opacity: 1;
-} */
-
-#avatar {
-    cursor: pointer;
-    /* position: absolute; */
-    /* top: 2%;
-    left: 50%;
-    transform: translateX(-50%); */
-    /* width: 160px;
-    height: 160px; */
-}
-
 .hero-text {
     position: relative;
     left: 50%; 
-    top: 55%;
-    transform: translateX(-50%) translateY(-100px);
+    top: 30%;
+    transform: translateX(-50%);
     /* margin: 150px auto 90px auto; */
     /* max-width: 900px; */
     text-align: center;
@@ -479,7 +466,7 @@ a:hover {
 .hero-text #name {
     font-family: "Raleway";
     margin: 0;
-    font-size: 64px;
+    font-size: 80px;
     font-weight: 700;
     line-height: 56px;
     letter-spacing: 0em;
@@ -497,7 +484,7 @@ a:hover {
 
 .hero-text #title {
     margin-top: 30px;
-    font-size: 24px;
+    font-size: 30px;
     line-height: 27px;
     letter-spacing: 0em;
     color: #fff;
@@ -508,22 +495,25 @@ a:hover {
     z-index: 9;
     /* margin: 0 auto; */
     left: 50%;
-    transform: translateX(-50%) translateY(-120px);
+    transform: translateX(-50%) translateY(-190px);
     /* text-align: center; */
     /* pointer-events: none; */
 }
 
-.profile-picture {
-    /* display: block; */
+#avatar {
+    cursor: pointer;
+    height: 220px;
+    width: 220px;
     /* position: absolute; */
-    /* margin-top: 71px; */
-    /* margin-bottom: 0; */
-    width: 215px; 
-    height: 215px;
-    border-radius: 50%;
-    /* margin-bottom: 20px; */
-    /* border: 0.3vw solid #fff; */
-    border: 10px solid var(--bg-main);
+    /* top: 2%;
+    left: 50%;
+    transform: translateX(-50%); */
+    /* width: 160px;
+    height: 160px; */
+}
+
+.eye {
+    transition: all 0.2s;
 }
 
 #hero .social-links {
@@ -633,6 +623,15 @@ a:hover {
         font-size: 16px;
         margin-top: 10px;
         /* line-height: 12px; */
+    }
+
+    #hero .dp {
+        transform: translateX(-50%) translateY(-130px);
+    }
+
+    #avatar {
+        width: 150px;
+        height: 150px;
     }
 }
 
@@ -786,119 +785,12 @@ a:hover {
 }
 
 /*--------------------------------------------------------------
-# Certificates section
---------------------------------------------------------------*/
-#certificate {
-    /* background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url('../img/wave-single.svg'); */
-    /* background-size: cover; */
-    /* max-width: 1100px; */
-    /* margin: 0 auto; */
-}
-
-#certificate .section-content .intro {
-    text-align: center;
-}
-
-#certificate .section-title {
-    margin-bottom: 0px !important;
-}
-
-#main-carousel {
-    width: 66%;
-    margin: 0 auto;
-}
-
-#thumbnail-carousel {
-    width: 68%;
-    margin: 0 auto;
-    padding: 0 60px;
-}
-
-@media (max-width: 991px) {
-    #main-carousel {
-        width: 98%;
-        margin: 0 auto;
-    }
-    
-    #thumbnail-carousel {
-        width: 100%;
-        margin: 0 auto;
-        padding: 0 60px;
-    }
-}
-
-.frame {
-    background-color: #eee;
-    border: solid 4vmin #eee;
-    border-bottom-color: #fff;
-    border-left-color: #eee;
-    border-radius: 2px;
-    border-right-color: #eee;
-    border-top-color: #ddd;
-    box-shadow: 0 0 5px 0 rgba(0,0,0,.25) inset, 0 5px 10px 5px rgba(0,0,0,.25);
-    box-sizing: border-box;
-    display: inline-block;
-    height: 100%;
-    padding: 1.5vmin;
-    position: relative;
-    text-align: center;
-
-    &:before {
-        content: "";
-        position: absolute;
-        left: -2vmin;
-        bottom: -2vmin;
-        right: -2vmin;
-        top: -2vmin;
-        border-radius: 2px;
-        box-shadow: 0 2px 5px 0 rgba(0,0,0,.25) inset;
-    }
-    &:after {
-        content: "";
-        position: absolute;
-        left: -2.5vmin;
-        bottom: -2.5vmin;
-        right: -2.5vmin;
-        top: -2.5vmin;
-        border-radius: 2px;
-        box-shadow: 0 2px 5px 0 rgba(0,0,0,.25);
-    }
-}
-
-#main-carousel .splide__track {
-    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1); */
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transition: 0.5s;
-    /* border: 3px solid white ; */
-}
-
-#main-carousel .splide__track:hover {
-    transform: translateY(-20px) scale(1.15);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-}
-
-.splide__slide img {
-    width: 100%;
-    height: 100%;
-    /* object-fit: cover; */
-}
-
-#thumbnail-carousel .splide__slide {
-    opacity: 0.3;
-}
-
-#thumbnail-carousel .splide__slide.is-active {
-    opacity: 1;
-    padding: 3px;
-}
-
-/*--------------------------------------------------------------
 # Publications section
 --------------------------------------------------------------*/
 #publication {
     /* max-width: 1100px; */
     /* margin: 0 auto; */
+    
 }
 
 .nav-tabs {
@@ -969,6 +861,7 @@ a:hover {
 #project {
     /* max-width: 1100px; */
     /* margin: 0 auto; */
+    /* background-color: #f5f8fd; */
 }
 
 #project .intro {
@@ -984,7 +877,7 @@ a:hover {
     transition: all ease-in-out 0.3s;
     background: #fff;
     /* box-sizing: border-box; */
-    box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.05);
+    box-shadow: 0px 5px 10px 0px rgba(110, 123, 131, 0.15);
 }
 
 .icon-box a {
@@ -1157,6 +1050,111 @@ a:hover {
     background-color: #11dbcf;
 }
 
+
+/*--------------------------------------------------------------
+# Certificates section
+--------------------------------------------------------------*/
+#certificate {
+}
+
+#certificate .section-content .intro {
+    text-align: center;
+}
+
+#certificate .section-title {
+    margin-bottom: 0px !important;
+}
+
+#main-carousel {
+    width: 66%;
+    margin: 0 auto;
+}
+
+#thumbnail-carousel {
+    width: 68%;
+    margin: 0 auto;
+    padding: 0 60px;
+}
+
+@media (max-width: 991px) {
+    #main-carousel {
+        width: 98%;
+        margin: 0 auto;
+    }
+    
+    #thumbnail-carousel {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 60px;
+    }
+}
+
+.frame {
+    background-color: #eee;
+    border: solid 4vmin #eee;
+    border-bottom-color: #fff;
+    border-left-color: #eee;
+    border-radius: 2px;
+    border-right-color: #eee;
+    border-top-color: #ddd;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.25) inset, 0 5px 10px 5px rgba(0,0,0,.25);
+    box-sizing: border-box;
+    display: inline-block;
+    height: 100%;
+    padding: 1.5vmin;
+    position: relative;
+    text-align: center;
+
+    &:before {
+        content: "";
+        position: absolute;
+        left: -2vmin;
+        bottom: -2vmin;
+        right: -2vmin;
+        top: -2vmin;
+        border-radius: 2px;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.25) inset;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        left: -2.5vmin;
+        bottom: -2.5vmin;
+        right: -2.5vmin;
+        top: -2.5vmin;
+        border-radius: 2px;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.25);
+    }
+}
+
+#main-carousel .splide__track {
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1); */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.5s;
+    /* border: 3px solid white ; */
+}
+
+#main-carousel .splide__track:hover {
+    transform: translateY(-20px) scale(1.15);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.splide__slide img {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; */
+}
+
+#thumbnail-carousel .splide__slide {
+    opacity: 0.3;
+}
+
+#thumbnail-carousel .splide__slide.is-active {
+    opacity: 1;
+    padding: 3px;
+}
+
 /*--------------------------------------------------------------
 # Blog section
 --------------------------------------------------------------*/
@@ -1171,7 +1169,9 @@ a:hover {
 #nasa-js {
     z-index: 1;
     position: relative;
-    bottom: -290px;
+    top: 290px;
+    margin-top: -290px;
+    /* bottom: -290px; */
     width: 100%;
     /* border: 2px solid #3f3; */
     height: 290px;
@@ -1214,7 +1214,7 @@ a:hover {
 } */
   
 #footer h3 {
-    font-size: 36px;
+    font-size: 44px;
     font-weight: 700;
     position: relative;
     font-family: "Poppins", sans-serif;
@@ -1223,7 +1223,7 @@ a:hover {
 }
   
 #footer p {
-    font-size: 15;
+    font-size: 14;
     font-style: italic;
     padding: 0;
     margin: 0 0 40px 0;
@@ -1270,36 +1270,34 @@ a:hover {
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
-.back-to-top {
+.download {
     position: fixed;
-    visibility: hidden;
-    opacity: 0;
     right: 15px;
     bottom: 15px;
     z-index: 996;
     background: var(--text-head);
-    width: 40px;
+    width: 150px;
     height: 40px;
+    font-size: 14px;
+    color: white;
     border-radius: 50px;
     transition: all 0.4s;
 }
-  
-.back-to-top i {
-    font-size: 28px;
-    color: #fff;
-    line-height: 0;
+
+.download i {
+    margin-right: 10px;
 }
-  
-.back-to-top:hover {
+
+.download:hover {
     background: rgb(13, 134, 152);
     color: #fff;
-}
-  
-.back-to-top.active {
-    visibility: visible;
-    opacity: 1;
+    text-decoration: none;
 }
 
 /*--------------------------------------------------------------
 # Extras
 --------------------------------------------------------------*/
+
+.section-bg {
+    background-color: #f4faff !important;
+}

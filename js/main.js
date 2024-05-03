@@ -23,7 +23,7 @@ function toggleTheme() {
   }
 }
 // Immediately invoked function to set the theme on initial load
-loadTheme();
+// loadTheme();
 
 // toggle tooltips
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
@@ -471,28 +471,28 @@ document.addEventListener( 'DOMContentLoaded', function () {
 
     function showNormalEyes() {
         normalGroup.classList.remove("hidden");
-        evilGroup.classList.add("hidden");
+        // evilGroup.classList.add("hidden");
         surprisedGroup.classList.add("hidden");
-        evilSurprisedGroup.classList.add("hidden");
+        // evilSurprisedGroup.classList.add("hidden");
     }
 
     function showEvilEyes() {
         evilGroup.classList.remove("hidden");
-        normalGroup.classList.add("hidden");
-        surprisedGroup.classList.add("hidden");
+        // normalGroup.classList.add("hidden");
+        // surprisedGroup.classList.add("hidden");
         evilSurprisedGroup.classList.add("hidden");
     }
 
     function showSurprisedEyes() {
         surprisedGroup.classList.remove("hidden");
         normalGroup.classList.add("hidden");
-        evilGroup.classList.add("hidden");
+        // evilGroup.classList.add("hidden");
         evilSurprisedGroup.classList.add("hidden");
     }
 
     function showEvilSurprisedEyes() {
         evilSurprisedGroup.classList.remove("hidden");
-        normalGroup.classList.add("hidden");
+        // normalGroup.classList.add("hidden");
         surprisedGroup.classList.add("hidden");
         evilGroup.classList.add("hidden");
     }
