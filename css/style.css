@@ -168,11 +168,6 @@ a:hover {
     padding-bottom: 60px;
 }
 
-.main .section-content {
-    max-width: 1140px;
-    margin: 0 auto;
-}
-
 .section-title {
     text-align: center;
     /* padding-bottom: 30px; */
@@ -218,13 +213,10 @@ a:hover {
     margin-bottom: 0;
 }
 
-.section-content {
-    /* max-width: 1100px; */
+.main .section-content {
+    max-width: 1140px;
+    padding: 0 30px;
     margin: 0 auto;
-    /* background-image: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.2) 100%); */
-    /* background-color: rgba(0,0,0,0.1); */
-    /* border-radius: 20px; */
-    /* padding: 20px 30px; */
 }
 
 /*--------------------------------------------------------------
@@ -1270,6 +1262,36 @@ a:hover {
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
+.back-to-top {
+    position: fixed;
+    visibility: hidden;
+    right: 15px;
+    bottom: 65px;
+    z-index: 996;
+    background: var(--bg-nav);
+    width: 40px;
+    height: 40px;
+    color: white;
+    border-radius: 50px;
+    transition: all 0.4s;
+}
+
+.back-to-top i {
+    font-size: 28px;
+    color: #fff;
+    line-height: 0;
+}
+
+.back-to-top:hover {
+    background: rgb(13, 134, 152);
+    color: #fff;
+}
+
+.back-to-top.active {
+    visibility: visible;
+    opacity: 1;
+}
+
 .download {
     position: fixed;
     right: 15px;
