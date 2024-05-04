@@ -171,6 +171,9 @@
 					<i class="bx bxl-youtube"></i>
 				</a>
 			</div>
+			<!-- <div id="avatar-container">
+				<div id="avatar-loading"></div>
+			</div> -->
 			<a href="#about" class="down-link scrollto" data-aos-duration="500" data-aos="fade-up" data-aos-delay="600" data-aos-mirror="false">
 				<svg class="arrows">
 					<path class="a1" d="M0 0 L30 32 L60 0"></path>
@@ -187,8 +190,94 @@
 					<h2>About</h2>
 				</div>
 				<div class="section-content">
-					<div class="intro" >
-						<p>Machine Learning Researcher at <a href="https://www.dfki.de/" target="_blank">DFKI</a>, working on 3D Computer Vision in Mixed Reality with <a href="https://av.dfki.de/members/stricker/" target="_blank">Prof. Dr. Didier Stricker</a>. My previous experiences include working with <a href="https://scholar.google.com/citations?user=o9RCNZYAAAAJ&hl=en" target="_blank">Prof. Dr. Faisal Shafait</a> on various Computer Vision R&D and commercial Projects, particularly in Document Image Understanding domain.</p>
+					<div class="row intro-content">
+						<div class="col">
+							<div class="intro" >
+								<p>Machine Learning Researcher at <a href="https://www.dfki.de/" target="_blank">DFKI</a>, working on 3D Computer Vision in Mixed Reality with <a href="https://av.dfki.de/members/stricker/" target="_blank">Prof. Dr. Didier Stricker</a>. My previous experiences include working with <a href="https://scholar.google.com/citations?user=o9RCNZYAAAAJ&hl=en" target="_blank">Prof. Dr. Faisal Shafait</a> on various Computer Vision R&D and commercial Projects, particularly in Document Image Understanding domain.</p>
+							</div>
+							<div class="skills-content">
+								<div class="row">
+									<div class="col">
+										<div class="skill">
+											<span class="skill-name">Python<i class="skill-val"></i></span>
+											<div class="progress">
+												<div class="progress-bar progress-bar-tool" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+										</div>
+										
+									</div>
+									<div class="col">
+										<div class="skill">
+											<span class="skill-name">C++<i class="skill-val"></i></span>
+											<div class="progress">
+												<div class="progress-bar progress-bar-tool" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col">
+										<div class="skill">
+											<span class="skill-name">Pytorch<i class="skill-val"></i></span>
+											<div class="progress">
+												<div class="progress-bar progress-bar-tool" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+										</div>
+										
+									</div>
+									<div class="col">
+										<div class="skill">
+											<span class="skill-name">Flask<i class="skill-val"></i></span>
+											<div class="progress">
+												<div class="progress-bar progress-bar-tool" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col">
+										<div class="skill">
+											<span class="skill-name">Javascript<i class="skill-val"></i></span>
+											<div class="progress">
+												<div class="progress-bar progress-bar-tool" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+										</div>
+									</div>
+									<div class="col">
+										<div class="skill">
+											<span class="skill-name">ReactJS<i class="skill-val"></i></span>
+											<div class="progress">
+												<div class="progress-bar progress-bar-tool" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="skill">
+									<span class="skill-name">Machine Learning<i class="skill-val"></i></span>
+									<div class="progress">
+										<div class="progress-bar progress-bar-topic" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+									</div>
+								</div>
+								<div class="skill">
+									<span class="skill-name">3D Computer Vision<i class="skill-val"></i></span>
+									<div class="progress">
+										<div class="progress-bar progress-bar-topic" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+									</div>
+								</div>
+								<div class="skill">
+									<span class="skill-name">Digital Image Processing<i class="skill-val"></i></span>
+									<div class="progress">
+										<div class="progress-bar progress-bar-topic" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3">
+							<div id="avatar-container">
+								<div id="avatar-loading"></div>
+							</div>
+						</div>
 					</div>
 					<div class="row work-n-education">
 						<div class="col-lg-6 work-exp" data-aos="fade-right">
@@ -734,5 +823,14 @@
 	<script src="lib/glightbox/js/glightbox.min.js"></script>
 	<script src="lib/splide/splide.min.js"></script>
 	<script src="js/main.js"></script>
+	<script type="importmap">
+		{
+		  "imports": {
+			"three": "https://cdn.jsdelivr.net/npm/three@v0.148.0/build/three.module.js",
+			"three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.148.0/examples/jsm/"
+		  }
+		}
+	</script>
+	<script type="module" src="js/three_scene.js"></script>
 </body>
 </html>
