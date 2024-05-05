@@ -2,7 +2,6 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-const scene = new THREE.Scene();
 const loader = new GLTFLoader();
 
 loader.load(
@@ -41,6 +40,8 @@ function setupScene(gltf) {
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
+    // renderer.setClearAlpha(1);
+
     renderer.outputEncoding = THREE.sRGBEncoding;
     // renderer.toneMapping = THREE.ACESFilmicToneMapping;
 
@@ -48,8 +49,10 @@ function setupScene(gltf) {
 
     // Camera setup
     const camera = new THREE.PerspectiveCamera(45, cw / ch);
-    camera.position.set(-0.2, 0.5, 1);  // x, y, z
+    
+    // camera.position.set(-0.1, 0.75, 3);  // x, y, z    
 
+    camera.position.set(-0.1, 0.75, 1);  // x, y, z
     const controls = new OrbitControls(camera, renderer.domElement);
     // controls.enabled = false; // disbale camera movement
     controls.enableDamping = true;
@@ -63,6 +66,9 @@ function setupScene(gltf) {
 
     // Scene setup
     const scene = new THREE.Scene();
+
+    // Scene background
+    // scene.background = new THREE.Color('#eee');
 
     // Lights setup
     scene.add(new THREE.AmbientLight(0xffffff, 1));
@@ -90,6 +96,7 @@ function setupScene(gltf) {
             child.receiveShadow = true;
         }
     });
+    avatar.rotation.y = Math.PI/12;
     scene.add(avatar);
 
     // Create pedestal
@@ -125,7 +132,7 @@ function setupScene(gltf) {
       raycaster.setFromCamera(coords, camera);
       const intersections = raycaster.intersectObject(avatar);
       // console.log(intersections);
-  
+
       if (intersections.length > 0) {
         // console.log('Avatar clicked');
         // ignore if already stumbling
@@ -144,6 +151,25 @@ function setupScene(gltf) {
         }, 2500)
       }
     });
+
+    container.addEventListener('mousemove', (ev) => {
+        const coords = {
+          x: (ev.offsetX / cw) * 2 - 1,
+          y: -(ev.offsetY / ch) * 2 + 1
+        };
+        // console.log(coords);
+  
+        const raycaster = new THREE.Raycaster();
+        raycaster.setFromCamera(coords, camera);
+        const intersections = raycaster.intersectObject(avatar);
+        // console.log(intersections);
+  
+        if (intersections.length > 0) {
+            document.body.style.cursor = 'pointer';
+        } else {
+            document.body.style.cursor = 'default';
+        }
+      });
 
     window.addEventListener('resize', () => {
       camera.aspect = cw / ch;
